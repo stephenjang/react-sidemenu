@@ -474,12 +474,13 @@ export class Item extends Component<PropsItem> {
 
   handleRenderMenuItemContent () {
     // $FlowFixMe
-    const { renderMenuItemContent, children, value, label, icon, activeState, rtl } = this.props
+    const { renderMenuItemContent, children, value, label, icon, extras, activeState, rtl } = this.props
     if (renderMenuItemContent) {
       return renderMenuItemContent({
         icon: icon,
         value: value,
-        label: label
+        label: label,
+        extras: extras
       })
     }
     return (

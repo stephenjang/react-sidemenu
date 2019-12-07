@@ -517,6 +517,7 @@ var Item = exports.Item = function (_Component2) {
           value = _props5.value,
           label = _props5.label,
           icon = _props5.icon,
+          extras = _props5.extras,
           activeState = _props5.activeState,
           rtl = _props5.rtl;
 
@@ -524,7 +525,8 @@ var Item = exports.Item = function (_Component2) {
         return renderMenuItemContent({
           icon: icon,
           value: value,
-          label: label
+          label: label,
+          extras: extras
         });
       }
       return _react2.default.createElement(
