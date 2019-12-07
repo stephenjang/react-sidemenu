@@ -360,7 +360,7 @@ var SideMenu = function (_Component) {
           'div',
           {
             key: item.value,
-            className: 'divider divider-level-' + level,
+            className: 'divider divider-level-' + level + ' ' + (item.className || ''),
             onClick: this.onItemClick(item) },
           item.label
         );
@@ -369,7 +369,7 @@ var SideMenu = function (_Component) {
         'div',
         {
           key: item.value,
-          className: 'item item-level-' + level + ' ' + (item.active ? 'active' : '') },
+          className: 'item item-level-' + level + ' ' + (item.active ? 'active' : '') + ' ' + (item.className || '') },
         _react2.default.createElement(
           'div',
           {
@@ -445,6 +445,7 @@ SideMenu.defaultProps = {
   theme: 'default'
 };
 SideMenu.propTypes = {
+  className: _propTypes2.default.string,
   items: _propTypes2.default.array,
   onMenuItemClick: _propTypes2.default.func,
   renderMenuItemContent: _propTypes2.default.func,
@@ -544,6 +545,7 @@ var Item = exports.Item = function (_Component2) {
     key: 'render',
     value: function render() {
       var _props6 = this.props,
+          className = _props6.className,
           label = _props6.label,
           onMenuItemClick = _props6.onMenuItemClick,
           divider = _props6.divider,
@@ -560,14 +562,14 @@ var Item = exports.Item = function (_Component2) {
       if (divider) {
         return _react2.default.createElement(
           'div',
-          { className: 'divider divider-level-' + level, onClick: this.onItemClick.bind(this) },
+          { className: 'divider divider-level-' + level + ' ' + (className || ''), onClick: this.onItemClick.bind(this) },
           label,
           ' '
         );
       }
       return _react2.default.createElement(
         'div',
-        { className: 'item item-level-' + level + ' ' + (activeState.active ? 'active' : '') },
+        { className: 'item item-level-' + level + ' ' + (activeState.active ? 'active' : '') + ' ' + (className || '') },
         _react2.default.createElement(
           'div',
           { className: 'item-title', onClick: this.onItemClick.bind(this) },

@@ -6,12 +6,14 @@ import type { Node as React$Node } from 'react'
 
 // types
 type JSONDivider = {
+  className: ?string,
   divider: true,
   label: string,
-  value: string
+  value: string,
 }
 
 type JSONItem = {
+  className: ?string,
   label: string,
   value: string,
   icon?: string,
@@ -20,6 +22,7 @@ type JSONItem = {
 }
 
 type JSONStateTreeItem = {
+  className: ?string,
   parent: ?JSONStateTreeItem,
   active: ?boolean,
   value: string,
@@ -32,6 +35,7 @@ type JSONStateTreeItem = {
 }
 
 type Props = {
+  className: ?string,
   items?: Array<JSONItem | JSONDivider>,
   onMenuItemClick?: (value: string, extras: any) => void,
   renderMenuItemContent?: ({ icon: ?string, value: ?string, label: ?string }) => React$Node,
@@ -55,6 +59,7 @@ type State = {
 }
 
 type PropsItem = {
+  className: ?string,
   label: string,
   value: string,
   icon?: string,
@@ -73,6 +78,7 @@ export default class SideMenu extends Component<Props, State> {
   }
 
   static propTypes = {
+    className: PropTypes.string,
     items: PropTypes.array,
     onMenuItemClick: PropTypes.func,
     renderMenuItemContent: PropTypes.func,
@@ -357,7 +363,7 @@ export default class SideMenu extends Component<Props, State> {
       return (
         <div
           key={item.value}
-          className={`divider divider-level-${level}`}
+          className={`divider divider-level-${level} ${item.className || ''}`}
           onClick={this.onItemClick(item)}>
           { item.label }
         </div>
@@ -366,7 +372,7 @@ export default class SideMenu extends Component<Props, State> {
     return (
       <div
         key={item.value}
-        className={`item item-level-${level} ${item.active ? 'active' : ''}`}>
+        className={`item item-level-${level} ${item.active ? 'active' : ''} ${item.className || ''}`}>
         <div
           className="item-title"
           onClick={this.onItemClick(item)}>
@@ -491,6 +497,7 @@ export class Item extends Component<PropsItem> {
 
   render () {
     const {
+      className,
       label,
       onMenuItemClick,
       divider,
@@ -501,11 +508,11 @@ export class Item extends Component<PropsItem> {
 
     if (divider) {
       return (
-        <div className={`divider divider-level-${level}`} onClick={this.onItemClick.bind(this)}>{label} </div>
+        <div className={`divider divider-level-${level} ${className || ''}`} onClick={this.onItemClick.bind(this)}>{label} </div>
       )
     }
     return (
-      <div className={`item item-level-${level} ${activeState.active ? 'active' : ''}`}>
+      <div className={`item item-level-${level} ${activeState.active ? 'active' : ''} ${className || ''}`}>
         <div className="item-title" onClick={this.onItemClick.bind(this)}>
           {this.handleRenderMenuItemContent()}
         </div>
