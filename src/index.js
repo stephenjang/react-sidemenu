@@ -289,7 +289,7 @@ export default class SideMenu extends Component<Props, State> {
         self.activeParentPath(item)
         self.setState({ itemTree: itemTree })
         // eslint-disable-next-line
-      } 
+      }
       // we deactivate the item if it is active and does not have children
       else if (!isLeaf) {
         item.active = false
@@ -355,7 +355,10 @@ export default class SideMenu extends Component<Props, State> {
   renderItem (item: JSONStateTreeItem, level: number) {
     if (item.divider) {
       return (
-        <div key={item.value} className={`divider divider-level-${level}`}>
+        <div
+          key={item.value}
+          className={`divider divider-level-${level}`}
+          onClick={this.onItemClick(item)}>
           { item.label }
         </div>
       )
@@ -498,7 +501,7 @@ export class Item extends Component<PropsItem> {
 
     if (divider) {
       return (
-        <div className={`divider divider-level-${level}`}>{label} </div>
+        <div className={`divider divider-level-${level}`} onClick={this.onItemClick.bind(this)}>{label} </div>
       )
     }
     return (
