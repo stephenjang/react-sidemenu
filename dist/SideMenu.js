@@ -38,7 +38,7 @@ type Props = {
   className: ?string,
   items?: Array<JSONItem | JSONDivider>,
   onMenuItemClick?: (value: string, extras: any) => void,
-  renderMenuItemContent?: ({ icon: ?string, value: ?string, label: ?string }) => React$Node,
+  renderMenuItemContent?: ({ icon: ?string, value: ?string, label: ?string, active: ?boolean }) => React$Node,
   theme: string,
   collapse?: boolean,
   rtl?: boolean,
@@ -343,7 +343,8 @@ export default class SideMenu extends Component<Props, State> {
       return renderMenuItemContent({
         icon: item.icon,
         value: item.value,
-        label: item.label
+        label: item.label,
+        active: item.active
       })
     }
     return (
@@ -480,6 +481,7 @@ export class Item extends Component<PropsItem> {
         icon: icon,
         value: value,
         label: label,
+        activeState: activeState,
         extras: extras
       })
     }

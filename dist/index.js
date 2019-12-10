@@ -333,7 +333,8 @@ var SideMenu = function (_Component) {
         return renderMenuItemContent({
           icon: item.icon,
           value: item.value,
-          label: item.label
+          label: item.label,
+          active: item.active
         });
       }
       return _react2.default.createElement(
@@ -526,6 +527,7 @@ var Item = exports.Item = function (_Component2) {
           icon: icon,
           value: value,
           label: label,
+          activeState: activeState,
           extras: extras
         });
       }
