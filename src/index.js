@@ -340,12 +340,7 @@ export default class SideMenu extends Component<Props, State> {
   handleRenderMenuItemContent (item: JSONStateTreeItem): React$Node {
     const { renderMenuItemContent, rtl } = this.props
     if (renderMenuItemContent) {
-      return renderMenuItemContent({
-        icon: item.icon,
-        value: item.value,
-        label: item.label,
-        active: item.active
-      })
+      return renderMenuItemContent(...item)
     }
     return (
       <span>
@@ -475,14 +470,16 @@ export class Item extends Component<PropsItem> {
 
   handleRenderMenuItemContent () {
     // $FlowFixMe
-    const { renderMenuItemContent, children, value, label, icon, extras, activeState, rtl } = this.props
+    const { renderMenuItemContent, children, value, label, icon, extras, activeState, rtl, divider } = this.props
     if (renderMenuItemContent) {
       return renderMenuItemContent({
         icon: icon,
         value: value,
         label: label,
         activeState: activeState,
-        extras: extras
+        extras: extras,
+        children: children,
+        divider: divider,
       })
     }
     return (
