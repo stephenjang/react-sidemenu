@@ -470,7 +470,7 @@ export class Item extends Component<PropsItem> {
 
   handleRenderMenuItemContent () {
     // $FlowFixMe
-    const { renderMenuItemContent, children, value, label, icon, extras, activeState, rtl, divider } = this.props
+    const { renderMenuItemContent, children, value, label, icon, extras, activeState, rtl, level } = this.props
     if (renderMenuItemContent) {
       return renderMenuItemContent({
         icon: icon,
@@ -479,7 +479,7 @@ export class Item extends Component<PropsItem> {
         activeState: activeState,
         extras: extras,
         children: children,
-        divider: divider,
+        level: level
       })
     }
     return (
