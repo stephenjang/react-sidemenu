@@ -340,7 +340,7 @@ export default class SideMenu extends Component<Props, State> {
   handleRenderMenuItemContent (item: JSONStateTreeItem): React$Node {
     const { renderMenuItemContent, rtl } = this.props
     if (renderMenuItemContent) {
-      return renderMenuItemContent(...item)
+      return renderMenuItemContent(item)
     }
     return (
       <span>
