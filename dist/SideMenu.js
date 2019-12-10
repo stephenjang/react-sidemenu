@@ -31,6 +31,7 @@ type JSONStateTreeItem = {
   extras: any,
   icon: ?string,
   label: ?string,
+  level: ?number,
   divider: ?boolean
 }
 
@@ -372,7 +373,7 @@ export default class SideMenu extends Component<Props, State> {
         <div
           className="item-title"
           onClick={this.onItemClick(item)}>
-          { this.handleRenderMenuItemContent(item) }
+          { this.handleRenderMenuItemContent({...item, level}) }
         </div>
         {/* render children */}
         <div className={`children ${item.active ? 'active' : 'inactive'}`}>

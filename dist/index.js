@@ -371,7 +371,7 @@ var SideMenu = function (_Component) {
           {
             className: 'item-title',
             onClick: this.onItemClick(item) },
-          this.handleRenderMenuItemContent(item)
+          this.handleRenderMenuItemContent(_extends({}, item, { level: level }))
         ),
         _react2.default.createElement(
           'div',
