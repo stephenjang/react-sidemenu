@@ -518,7 +518,7 @@ var Item = exports.Item = function (_Component2) {
           extras = _props5.extras,
           activeState = _props5.activeState,
           rtl = _props5.rtl,
-          divider = _props5.divider;
+          level = _props5.level;
 
       if (renderMenuItemContent) {
         return renderMenuItemContent({
@@ -528,7 +528,7 @@ var Item = exports.Item = function (_Component2) {
           activeState: activeState,
           extras: extras,
           children: children,
-          divider: divider
+          level: level
         });
       }
       return _react2.default.createElement(
