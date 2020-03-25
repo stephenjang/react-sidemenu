@@ -42,8 +42,8 @@ var SideMenu = function (_Component) {
   }
 
   _createClass(SideMenu, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
+    key: 'UNSAFE_componentWillMount',
+    value: function UNSAFE_componentWillMount() {
       if (this.props.children) {
         this.setState({
           componentStateTree: this.buildComponentStateTree(this.props.children, null)

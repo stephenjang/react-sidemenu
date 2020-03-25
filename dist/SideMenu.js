@@ -94,7 +94,7 @@ export default class SideMenu extends Component<Props, State> {
     this.state = { itemTree: [], componentStateTree: [] }
   }
 
-  componentWillMount () {
+  UNSAFE_componentWillMount () {
     if (this.props.children) {
       this.setState({
         componentStateTree: this.buildComponentStateTree(this.props.children, null)
